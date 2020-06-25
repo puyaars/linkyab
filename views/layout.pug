@@ -1,0 +1,108 @@
+mixin linkItem(item)
+    .item.col.s12
+        .card.masonry-content
+            .card-content(dir="auto")
+                
+                .card-title
+                    .row
+                        .col.s4
+                            img.link-image(src=item.pic, alt="")
+                        .col.s8
+                            p= item.title
+                            span.badge(dir="ltr")= item.extra
+                    h6!= item.description
+            .card-action
+                a(href="/visit/"+item._id target='blank') visit
+
+
+
+mixin topicItem(topic)
+    .col.s12
+        .row
+            .col.s2
+                img.link-image(src=topic.pic, alt="")
+            .col.s8
+                h3
+                    b.grey-text.darken-3= topic.title
+                blockquote= topic.description
+            .col.s2
+                a(href='/topic/'+topic.title class="waves-effect waves-light btn") view all
+
+mixin pagination(pagination,path)
+    - var n = 1;
+    ul.pagination.col.s12
+        if pagination.page == 1
+            li.disabled
+                a
+                    i.material-icons chevron_left
+        else
+            li.waves-effect
+                a(href=pagination.path + "page="+ pagination.page - 1)
+                    i.material-icons chevron_left
+        
+        while n < pagination.lastPage
+            if pagination.page == n
+                li.active
+                    a(href= pagination.path + "page="+ n )= n++
+            else
+                li.waves-effect
+                    a(href= pagination.path + "page="+ n )= n++
+        if pagination.page == pagination.lastPage
+                li.disabled
+                    a
+                        i.material-icons chevron_right
+        else
+            li.waves-effect
+                a(href=pagination.path + "page="+ pagination.page + 1)
+                    i.material-icons chevron_right
+
+html
+    head
+        block title
+
+        style
+            include css/materialize.min.css
+
+        style
+            include css/main.css
+
+        script
+            include js/jquery-3.5.1.slim.min.js
+
+        link(rel="shortcut icon", href="/assets/favicon.png", type="image/x-icon")
+            
+
+
+    body
+        header
+            nav
+                .nav-wrapper
+                    a(href="/").brand-logo.center
+                        b LINKYAB
+
+        block content
+
+        footer.page-footer
+            .container
+                .row
+                    .col.l4.s12
+                        img(src="/assets/support.png", alt="")
+                    .col.l4.offset-l1.s12
+                        h5.white-text ABOUT US
+                        p.grey-text.text-lighten-4
+                            | we created this project to make the telegram society smaller
+                            | here you can add your telegram link and your channel, group, bot
+                            | or bot will be automaticly indexed in our database. available for search
+                            | and listed by topic.
+                            | look forward for more and more features comming out!
+
+
+            .footer-copyright
+                .container
+                    | © 2020 Copyright
+
+        script
+            include js/materialize.min.js
+
+        script
+            include js/main.js

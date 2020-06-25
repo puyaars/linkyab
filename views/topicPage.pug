@@ -1,0 +1,20 @@
+extends layout.pug
+
+block title
+    title= topic.title
+
+block content
+    .container
+
+        include messages.pug
+        
+        include searchForm.pug
+
+        .row
+            +topicItem(topic)
+            
+            .masonry.col.s12
+                for item in links
+                    +linkItem(item)
+
+            +pagination(pagination)

@@ -1,0 +1,12 @@
+.container.mb-1
+    h3.center
+        b.grey-text.darken-3 search our link directory
+    nav.search.grey
+        .nav-wrapper
+            form(action='/search' method='get')
+                .input-field
+                    input(type="search" class="form-control-plaintext" id="criteria" name='criteria' required)
+                    //- label(for="criteria_main" class="sr-only") Search
+                    label.label-icon(for="criteria" class="sr-only") 
+                        i.material-icons search
+                    i.material-icons close

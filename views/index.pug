@@ -1,0 +1,41 @@
+extends layout.pug
+
+block title
+    title LinkYAB
+
+block content
+
+    .home
+        .container.center
+
+            include messages.pug
+            
+            include searchForm.pug
+            
+            include addLink.pug
+
+    .container
+    
+        main        
+            .row
+
+                .col.s3
+                //- top Links
+
+                .col.s12
+                    //- topics
+
+                    h3.center
+                        b.grey-text.darken-3 discover new channels 
+                
+                    for topic in topics
+                        +topicItem(topic)
+
+                        .masonry.col.s12
+                            for item in topic.links
+                                +linkItem(item)
+
+                //- LATEST LINKS
+
+                .col.s3
+                //- promoted LINKS

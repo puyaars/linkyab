@@ -1,0 +1,20 @@
+.container
+
+    
+    h3
+        b.grey-text.darken-3 Add your link for free
+    form.row(action='/' method='post')
+
+        .input-field.col.s12
+            input(type="text" class="form-control-plaintext" id="link" name='link')
+            label(for="link" class="sr-only") link address
+
+        .input-field.col.s10
+            select(id="topic" name='topic')
+                for topic , index  in topics
+                    option(value=topic.title selected = index== 0)= topic.title
+            label(for="topic" class="sr-only") select topic
+        
+        .input-field.col.s2
+            button(type="submit" class="btn btn-primary mb-2") 
+                i.material-icons.center add
