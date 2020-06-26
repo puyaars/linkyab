@@ -1,0 +1,9 @@
+{
+    "platform": "node",
+    "app": "linkyab",
+    "port": 8000,
+    "node": {
+        "version": "12",
+        "npmAudit": true
+      }
+  }

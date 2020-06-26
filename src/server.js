@@ -9,7 +9,7 @@ import cookieSession from 'cookie-session'
 
 import flash from "express-flash";
 
-import passport from "./utils/auth";
+// import passport from "./utils/auth";
 import router from "./router";
 
 export default async () => {
@@ -42,8 +42,8 @@ export default async () => {
 
   app.use(flash());
 
-  app.use(passport.initialize());
-  app.use(passport.session());
+  // app.use(passport.initialize());
+  // app.use(passport.session());
 
   app.use("/", router);
   app.use("/assets", express.static(path.join(__dirname,'../assets')));

@@ -17,7 +17,9 @@ mixin linkItem(item)
 
 
 mixin topicItem(topic)
+
     .col.s12
+        .divider
         .row
             .col.s2
                 img.link-image(src=topic.pic, alt="")
@@ -81,6 +83,37 @@ html
                         b LINKYAB
 
         block content
+
+        .wrapper
+            span.wrapped-span advertisements
+        .advertisements.container.center-children(dir='rtl')
+            
+            a(href="http://bestruble.ru/?ref=92673")
+                img.block-image(src="/assets/bestruble.gif", alt="" )
+            a.center-children(href="http://bestruble.ru/?ref=92673")
+                b.grey-text.text-darken-3
+                    p
+                        | در وبسایت بست روبل سرمایه خود را 480% افزایش دهید
+                        | سود روزانه 4% با برداشت آنی
+                        | سرمایه گذاری مطمئن با سود فوق العاده
+                        | این فرصت عالی را از دست ندهید
+            b.grey-text.text-darken-3
+                p
+                    | جهت مشاوره و راهنمایی با آیدی 
+                    a(href="http://t.me/puyaars") @puyaars
+                    | تماس بگیرید
+
+            
+            center
+                a(href="https://linkslot.ru/link.php?id=291236" target="_blank" rel="noopener")
+                    | Buy link here for 
+                    span#linprice_291236
+                    | rubles
+                #linkslot_291236(style="margin: 10px 0;")
+                    script(src="https://linkslot.ru/lincode.php?id=291236" async)
+                a(href="https://linkslot.ru/?ref=puyaars" target="_blank" rel="noopener") Поставить к себе на сайт
+            
+
 
         footer.page-footer
             .container

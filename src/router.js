@@ -4,7 +4,6 @@ import { Link, Topic } from "./models";
 import { getChannelInfo } from "./utils/telegram";
 import { isUri } from "valid-url";
 import url from "url";
-import { title } from "process";
 
 const router = Router();
 
@@ -39,18 +38,24 @@ router.get("/", sendHome);
 router.post(
   "/",
   async (req, res, next) => {
-    console.log(req.body);
     var adress = req.body.link;
 
     if (!isUri(adress)) {
-      req.flash("error", "invalid link");
+      req.flash("error", "لینک نامعتبر است");
       return next();
     }
 
     var uri = url.parse(adress);
 
     if (uri.hostname !== "t.me") {
-      req.flash("error", "not a telegram link");
+      req.flash("error", "لینک مربوط به تلگرام نمی باشد");
+      return next();
+    }
+
+    var exists = await Link.findOne({adress})
+
+    if (exists) {
+      req.flash("error", "لینک از قبل موجود است");
       return next();
     }
 

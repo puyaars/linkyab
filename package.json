@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon  --exec babel-node src/index.js ENVIRONMENT=development",
-    "start": "babel-node src/index.js ENVIRONMENT=development",
+    "start:dev": "babel-node src/index.js ENVIRONMENT=development",
     "build": "babel src -d lib",
-    "prod": "node lib ENVIRONMENT=production",
+    "start": "node lib ENVIRONMENT=production",
     "deploy": "pm2 start ecosystem.config.js",
     "test": "jest --runInBand ./test",
     "seeds": "md-seed run"
@@ -38,6 +38,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
+    "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "dom-parser": "^0.1.6",
     "dotenv": "^8.2.0",
@@ -51,6 +52,7 @@
     "passport-local": "^1.0.0",
     "pug": "^3.0.0",
     "redis": "^3.0.2",
+    "regenerator-runtime": "^0.13.5",
     "shortid": "^2.2.15",
     "valid-url": "^1.0.9"
   },
