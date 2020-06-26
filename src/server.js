@@ -9,7 +9,7 @@ import cookieSession from 'cookie-session'
 
 import flash from "express-flash";
 
-// import passport from "./utils/auth";
+import passport from "./utils/auth";
 import router from "./router";
 
 export default async () => {
